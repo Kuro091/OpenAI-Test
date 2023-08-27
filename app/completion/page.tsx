@@ -5,7 +5,7 @@ import { useCompletion } from 'ai/react';
 import Link from 'next/link';
 
 export default function ChatPage() {
-  const { completion, input, handleInputChange, handleSubmit } = useCompletion();
+  const { completion, input, handleInputChange, handleSubmit, isLoading } = useCompletion();
 
   return (
     <div className='mx-auto w-full max-w-md py-24 flex flex-col'>
@@ -18,6 +18,7 @@ export default function ChatPage() {
         />
         <Button type='submit'>Submit</Button>
       </form>
+      {isLoading && <div className='text-red-400'>Generating Completions...</div>}
       <div className='whitespace-pre-wrap my-6'>{completion}</div>
       <Link
         href='/'

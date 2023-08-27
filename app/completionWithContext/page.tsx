@@ -52,6 +52,7 @@ export default function ChatContextPage() {
           <input hidden name='context' value={derivedContext} readOnly />
           <Button type='submit'>Submit</Button>
         </form>
+        {isLoading && <div className='text-red-400'>Generating Completions...</div>}
         {completion}
         <Link
           href='/'
